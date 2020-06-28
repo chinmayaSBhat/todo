@@ -9,23 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-               // .antMatchers("/", "/home", "/h2-console/**").permitAll() //delete h2. for h2database access during development
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll().and().exceptionHandling().accessDeniedPage("/error");
-
-        http.csrf().disable(); 
-        http.headers().frameOptions().disable(); 
-        http.formLogin().defaultSuccessUrl("/todo");
-    }
+    
+   
 
     
     @Override
